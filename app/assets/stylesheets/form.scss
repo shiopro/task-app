@@ -19,3 +19,14 @@ label {
   font-size: 18px;
   color: $text-base-color;
 }
+
+textarea {
+  width: 100%;
+  margin: 8px 0 33px;
+  padding: 8px 8px;
+  min-height: 210px;
+  resize: none;
+  border: none;
+  background-color: $basic-bg-color;
+  border-radius: 10px;
+}
