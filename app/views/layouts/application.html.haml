@@ -10,6 +10,12 @@
     = javascript_importmap_tags
   %body
     %header.header
+      - if user_signed_in?
+        .dropdown 
+          .dropdown-content 
+            = link_to 'Log out', destroy_user_session_path, data: { turbo_method: 'delete' }
+      - else
+        = link_to 'Log in', new_user_session_path, class: 'header_loginBtn'
       - if flash.present?
         .flash 
           - flash.each do |key, value|
