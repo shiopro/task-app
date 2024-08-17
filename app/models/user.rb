@@ -23,4 +23,12 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_one_attached :avatar
+
+  def avatar_image
+    if avatar&.attached?
+      avatar
+    else
+      'Users.png'
+    end
+  end
 end
