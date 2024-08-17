@@ -76,3 +76,4 @@ end
 
 gem 'haml-rails'
 gem 'devise'
+gem "dartsass-rails", "~> 0.5.1"
