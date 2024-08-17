@@ -9,4 +9,10 @@
     = stylesheet_link_tag "application", "data-turbo-track": "reload"
     = javascript_importmap_tags
   %body
+    %header.header
+      - if flash.present?
+        .flash 
+          - flash.each do |key, value|
+            %div{:class => key}= value
     = yield
+
