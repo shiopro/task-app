@@ -1,0 +1,22 @@
+.container 
+  %h2
+    = @board.title
+  - @tasks.each do |task|
+    .card 
+      .card_content 
+        %h3.card_title 
+          = task.title
+          .card_end_date 
+            %p 期限
+            = I18n.l(task.end_date, format: :default)
+        .card_description 
+          = task.description
+        .card_detail 
+          = image_tag task.user.avatar_image, class: 'icon'
+          .card_comment
+            %span= 23
+            = image_tag 'comment-icon.png', class: 'comment-icon'
+
+  .card_new
+    = link_to new_board_task_path(@board) do
+      %p + Add new card
