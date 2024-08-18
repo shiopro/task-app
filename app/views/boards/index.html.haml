@@ -15,7 +15,7 @@
               = image_tag 'Combined Shape.png', class: 'dropbtn'
               .dropdown-content.mini
                 = link_to 'Edit', edit_board_path(board)
-                %a{:href => "#"} Delete
+                = link_to 'Delete', board_path(board), data: { turbo_method: 'delete', turbo_confirm: '本当に削除してもよろしいですか？' }
   .board_new
     = link_to new_board_path do
       %p + Add new board
