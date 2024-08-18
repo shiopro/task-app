@@ -26,6 +26,14 @@
       background-color: white;
     }
   }
+
+  &.mini {
+    min-width: 100px;
+
+    a {
+      font-size: 12px;
+    }
+  }
 }
 
 .dropdown:hover .dropdown-content {

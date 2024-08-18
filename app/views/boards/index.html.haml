@@ -1,0 +1,21 @@
+.container 
+  %h2 All Boards
+  - @boards.each do |board|
+    .board 
+      .board_content 
+        %h3.board_title
+          = board.title 
+        .board_description 
+          = board.description 
+        .board_detail 
+          = image_tag board.user.avatar_image, class: 'icon'
+        - if user_signed_in? && current_user.has_written?(board)
+          .board_detail_actions 
+            .dropdown
+              = image_tag 'Combined Shape.png', class: 'dropbtn'
+              .dropdown-content.mini
+                %a{:href => "#"} Edit
+                %a{:href => "#"} Delete
+  .board_new
+    = link_to new_board_path do
+      %p + Add new board
