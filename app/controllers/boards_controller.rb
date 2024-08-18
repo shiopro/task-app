@@ -18,6 +18,10 @@ class BoardsController < ApplicationController
     end
   end
 
+  def edit
+    @board = current_user.boards.find(params[:id])
+  end
+
   private
 
   def board_params
