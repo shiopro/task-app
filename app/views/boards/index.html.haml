@@ -14,7 +14,7 @@
             .dropdown
               = image_tag 'Combined Shape.png', class: 'dropbtn'
               .dropdown-content.mini
-                %a{:href => "#"} Edit
+                = link_to 'Edit', edit_board_path(board)
                 %a{:href => "#"} Delete
   .board_new
     = link_to new_board_path do
