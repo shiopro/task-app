@@ -13,6 +13,10 @@ input {
   &.pass {
     margin-bottom: 16px;
   }
+
+  &.eyecatch {
+    margin: 8px 0 20px;
+  }
 }
 
 label {
@@ -27,6 +31,12 @@ textarea {
   min-height: 210px;
   resize: none;
   border: none;
+  background-color: $basic-bg-color;
+  border-radius: 10px;
+}
+
+select {
+  margin-top: 10px;
   background-color: $basic-bg-color;
   border-radius: 10px;
 }
