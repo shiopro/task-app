@@ -1,0 +1,18 @@
+.container 
+  %h1
+    = @task.title
+    .task_detail_actions 
+      .dropdown
+        = image_tag 'Combined Shape.png', class: 'dropbtn'
+        .dropdown-content.task_mini
+          %a{:href => "#"} Edit
+          %a{:href => "#"} Delete
+  - if @task.eyecatch.attached?
+    .card_image 
+      = image_tag @task.eyecatch
+  .task
+    .task_content 
+      .task_description 
+        = @task.description
+        
+  %h3.sub_title Comment

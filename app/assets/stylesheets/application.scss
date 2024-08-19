@@ -5,6 +5,7 @@
 @import 'commons';
 @import 'flash';
 @import 'board';
+@import 'task';
 
 html {
   word-spacing: 1px;
@@ -33,6 +34,14 @@ body {
 .container {
   width: 100%;
   padding: 0px 26px 20px;
+}
+
+h1 {
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+  font-weight: bold;
+  margin: 33px 10px;
 }
 
 h2 {

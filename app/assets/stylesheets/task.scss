@@ -1,0 +1,35 @@
+@import './variables';
+
+.task {
+  background-color: $basic-bg-color;
+  border: none;
+  border-radius: 10px;
+  margin-top: 5px;
+  padding: 20px;
+  cursor: pointer;
+
+  &_description {
+    font-size: 14px;
+  }
+
+  &_mini {
+    min-width: 50px;
+    border-radius: 10px;
+    border: 1px;
+
+    a {
+      font-size: 12px;
+      padding: 8px 16px 8px;
+      text-decoration: none;
+      display: block;
+      color: $text-base-color;
+      border-radius: 10px;
+    }
+  }
+}
+
+.sub_title {
+  font-size: 26px;
+  margin: 33px 10px 20px;
+  font-weight: 400;
+}
