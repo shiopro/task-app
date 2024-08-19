@@ -3,6 +3,9 @@
     = @board.title
   - @tasks.each do |task|
     .card 
+      -if task.eyecatch.attached?
+        .card_image 
+          = image_tag task.eyecatch
       .card_content 
         %h3.card_title 
           = task.title
