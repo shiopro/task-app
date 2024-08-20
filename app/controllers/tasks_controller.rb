@@ -34,6 +34,14 @@ class TasksController < ApplicationController
   end
 
   def update
+    @board = Board.find(params[:board_id])
+    @task = @board.tasks.find(params[:id])
+    if @task.update(task_params)
+      redirect_to board_task_path(@board, @task), notice: '更新できました'
+    else
+      flash.now[:error] = '更新できませんでした'
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   private
