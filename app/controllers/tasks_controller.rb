@@ -33,6 +33,9 @@ class TasksController < ApplicationController
     @task = @board.tasks.find(params[:id])
   end
 
+  def update
+  end
+
   private
 
   def task_params
