@@ -5,7 +5,7 @@
       .dropdown
         = image_tag 'Combined Shape.png', class: 'dropbtn'
         .dropdown-content.task_mini
-          %a{:href => "#"} Edit
+          = link_to 'Edit', edit_board_task_path(@board, @task)
           %a{:href => "#"} Delete
   - if @task.eyecatch.attached?
     .card_image 
