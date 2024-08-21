@@ -2,6 +2,9 @@
   %h1
     = @task.title
     .task_detail_actions 
+      .task_end_date 
+        %p 期限 
+        = I18n.l(@task.end_date, format: :default)
       .dropdown
         = image_tag 'Combined Shape.png', class: 'dropbtn'
         .dropdown-content.task_mini
