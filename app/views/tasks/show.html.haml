@@ -1,0 +1,21 @@
+.container 
+  %h1
+    = @task.title
+    .task_detail_actions 
+      .task_end_date 
+        %p 期限 
+        = I18n.l(@task.end_date, format: :default)
+      .dropdown
+        = image_tag 'Combined Shape.png', class: 'dropbtn'
+        .dropdown-content.task_mini
+          = link_to 'Edit', edit_board_task_path(@board, @task)
+          = link_to 'Delete', board_task_path(@board, @task), data: { turbo_method: 'delete', turbo_confirm: '本当に削除してもよろしいですか?' }
+  - if @task.eyecatch.attached?
+    .card_image 
+      = image_tag @task.eyecatch
+  .task
+    .task_content 
+      .task_description 
+        = @task.description
+        
+  %h3.sub_title Comment

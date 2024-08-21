@@ -21,7 +21,36 @@ class TasksController < ApplicationController
       render :new, status: :unprocessable_entity
     end
   end
+
+  def show
+    @board = Board.find(params[:board_id])
+    @task = Task.find(params[:id])
+  end
   
+
+  def edit
+    @board = Board.find(params[:board_id])
+    @task = @board.tasks.find(params[:id])
+  end
+
+  def update
+    @board = Board.find(params[:board_id])
+    @task = @board.tasks.find(params[:id])
+    if @task.update(task_params)
+      redirect_to board_task_path(@board, @task), notice: '更新できました'
+    else
+      flash.now[:error] = '更新できませんでした'
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    board = Board.find(params[:board_id])
+    task = board.tasks.find(params[:id])
+    task.destroy!
+    redirect_to board_tasks_path(board), notice: '削除に成功しました'
+  end
+
   private
 
   def task_params

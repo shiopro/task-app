@@ -2,23 +2,24 @@
   %h2
     = @board.title
   - @tasks.each do |task|
-    .card 
-      -if task.eyecatch.attached?
-        .card_image 
-          = image_tag task.eyecatch
-      .card_content 
-        %h3.card_title 
-          = task.title
-          .card_end_date 
-            %p 期限
-            = I18n.l(task.end_date, format: :default)
-        .card_description 
-          = task.description
-        .card_detail 
-          = image_tag task.user.avatar_image, class: 'icon'
-          .card_comment
-            %span= 23
-            = image_tag 'comment-icon.png', class: 'comment-icon'
+    = link_to board_task_path(@board, task) do
+      .card 
+        -if task.eyecatch.attached?
+          .card_image 
+            = image_tag task.eyecatch
+        .card_content 
+          %h3.card_title 
+            = task.title
+            .card_end_date 
+              %p 期限
+              = I18n.l(task.end_date, format: :default)
+          .card_description 
+            = task.description
+          .card_detail 
+            = image_tag task.user.avatar_image, class: 'icon'
+            .card_comment
+              %span= 23
+              = image_tag 'comment-icon.png', class: 'comment-icon'
 
   .card_new
     = link_to new_board_task_path(@board) do
