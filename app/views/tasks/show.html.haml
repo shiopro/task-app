@@ -17,8 +17,15 @@
     .task_content 
       .task_description 
         = @task.description
-        
+       
   %h3.sub_title Comment
+  - @comments.each do |comment|
+    .comment_detail
+      .comment_icon
+        = image_tag comment.user.avatar_image, class: 'icon'
+      .task_comment 
+        %p= comment.content 
+      
   .comment_new
     = link_to new_board_task_comment_path(@board, @task) do
       %p + Add new comment
