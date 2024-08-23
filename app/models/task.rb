@@ -29,4 +29,8 @@ class Task < ApplicationRecord
   validates :description, presence: true
 
   has_one_attached :eyecatch
+
+  def comment_count
+    comments.count
+  end
 end
