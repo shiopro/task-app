@@ -3,6 +3,7 @@ class TasksController < ApplicationController
   def index
     @board = Board.find(params[:board_id])
     @tasks = @board.tasks
+    @tasks = Task.includes(comments: :user).all
   end
 
   def new
@@ -25,6 +26,7 @@ class TasksController < ApplicationController
   def show
     @board = Board.find(params[:board_id])
     @task = Task.find(params[:id])
+    @comments = @task.comments
   end
   
 

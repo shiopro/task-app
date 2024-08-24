@@ -16,9 +16,13 @@
           .card_description 
             = task.description
           .card_detail 
-            = image_tag task.user.avatar_image, class: 'icon'
+            .card_detail_icon
+              = image_tag task.user.avatar_image, class: 'icon'
+              - if task.comments.any?
+                - task.comments.each do |comment|
+                  = image_tag comment.user.avatar_image, class: 'icon2'
             .card_comment
-              %span= 23
+              %span= task.comment_count
               = image_tag 'comment-icon.png', class: 'comment-icon'
 
   .card_new
