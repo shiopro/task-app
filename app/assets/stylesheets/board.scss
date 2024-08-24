@@ -37,18 +37,34 @@ $comment-icon: 25px;
     display: flex;
     justify-content: space-between;
 
-    .icon {
-      width: $avatar-size;
-      height: $avatar-size;
-      border-radius: 100%;
-      margin-top: 36px;
-      margin-bottom: 20px;
+    &_icon {
+      display: flex;
+      justify-content: flex-start;
+
+      .icon {
+        width: $avatar-size;
+        height: $avatar-size;
+        border-radius: 100%;
+        margin-top: 36px;
+        margin-bottom: 20px;
+        display: flex;
+      }
+
+      .icon2 {
+        width: $avatar-size;
+        height: $avatar-size;
+        border-radius: 100%;
+        margin-top: 36px;
+        margin-bottom: 20px;
+        margin-left: -15px;
+        display: flex;
+      }
     }
 
     &_actions {
       cursor: pointer;
       right: 0px;
-      bottom: 30px;
+      bottom: 20px;
       position: absolute;
       display: flex;
       justify-content: space-between;
@@ -90,16 +106,17 @@ $comment-icon: 25px;
 
   &_comment {
     display: flex;
+    padding-top: 40px;
   }
 }
 
 .comment-icon {
   width: $comment-icon;
   height: $comment-icon;
-  margin: 42px 0 12px;
+  margin-bottom: 12px;
 }
 
 span {
-  margin: 48px 5px 14px;
+  margin: 6px 5px 14px;
   font-size: 12px;
 }
