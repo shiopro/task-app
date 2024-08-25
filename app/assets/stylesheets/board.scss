@@ -37,6 +37,11 @@ $comment-icon: 25px;
     display: flex;
     justify-content: space-between;
 
+    .icon {
+      width: $avatar-size;
+      height: $avatar-size;
+    }
+
     &_icon {
       display: flex;
       justify-content: flex-start;
