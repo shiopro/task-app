@@ -4,7 +4,6 @@ class TasksController < ApplicationController
 
   def index
     @tasks = @board.tasks
-    @tasks = Task.includes(comments: :user).all
   end
 
   def new
