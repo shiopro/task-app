@@ -2,7 +2,7 @@
   %ul
     - @task.errors.full_messages.each do |message|
       %li= message
-  %h2 New Card
+  %h2 Edit Card
   = form_with(model: [@board, @task], url: board_task_path(@board, @task), method: 'put', local: true) do |f|
     %div
       = f.label :eyecatch, 'eyecatch'
@@ -21,4 +21,4 @@
     %div
       = f.datetime_select :end_date
     %div
-      = f.submit 'Save', class: 'btn-primary'
+      = f.submit 'Update', class: 'btn-primary'

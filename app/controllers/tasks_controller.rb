@@ -1,9 +1,9 @@
 class TasksController < ApplicationController
+  before_action :set_task, only: [:index, :show, :edit, :update]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
   def index
-    @board = Board.find(params[:board_id])
     @tasks = @board.tasks
-    @tasks = Task.includes(comments: :user).all
   end
 
   def new
@@ -24,19 +24,15 @@ class TasksController < ApplicationController
   end
 
   def show
-    @board = Board.find(params[:board_id])
     @task = Task.find(params[:id])
     @comments = @task.comments
   end
   
-
   def edit
-    @board = Board.find(params[:board_id])
     @task = @board.tasks.find(params[:id])
   end
 
   def update
-    @board = Board.find(params[:board_id])
     @task = @board.tasks.find(params[:id])
     if @task.update(task_params)
       redirect_to board_task_path(@board, @task), notice: '更新できました'
@@ -57,5 +53,9 @@ class TasksController < ApplicationController
 
   def task_params
     params.require(:task).permit(:title, :description, :end_date, :eyecatch)
+  end
+
+  def set_task
+    @board = Board.find(params[:board_id])
   end
 end
